@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>My Nurse Visa — From Canada to the USA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ─── TOKENS ─────────────────────────────────────── */
+:root {
+  color-scheme: light;
+  --bg:       #fafaf8;
+  --surface:  #ffffff;
+  --border:   #e8e6e2;
+  --muted:    #9a9790;
+  --body:     #4a4845;
+  --ink:      #1c1b18;
+  --blue:     #1a5fa8;
+  --blue-dim: #eef4fb;
+  --red:      #c94a2b;
+  --red-dim:  #fdf2ef;
+  --green:    #2e7d5e;
+  --r:        12px;
+  --rL:       20px;
+  --shadow:   0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.05);
+  --shadowM:  0 2px 8px rgba(0,0,0,.06), 0 12px 40px rgba(0,0,0,.08);
+}
+/* ─── RESET ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ─── UTILITIES ──────────────────────────────────── */
+.serif { font-family: 'Instrument Serif', serif; }
+.tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 18px;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+
+@keyframes up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+.au { animation: up .7s ease both; }
+.d1 { animation-delay: .05s; opacity:0 }
+.d2 { animation-delay: .18s; opacity:0 }
+.d3 { animation-delay: .3s;  opacity:0 }
+.d4 { animation-delay: .42s; opacity:0 }
+
+/* ─── BUTTONS ────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 12px 24px; border-radius: var(--r);
+  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+  border: none; cursor: pointer; transition: all .18s;
+  white-space: nowrap;
+}
+.btn-blue  { background: var(--blue); color: #fff; box-shadow: 0 2px 8px rgba(26,95,168,.25); }
+.btn-blue:hover  { background: #1a6fc4; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(26,95,168,.3); }
+.btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
+.btn-ghost:hover { border-color: #c0bdb8; background: var(--surface); }
+.btn-red   { background: var(--red); color: #fff; box-shadow: 0 2px 8px rgba(201,74,43,.25); }
+.btn-red:hover { background: #d95835; transform: translateY(-1px); }
+.btn-lg { padding: 14px 30px; font-size: 15px; font-weight: 600; border-radius: var(--rL); }
+
+/* ─── PAGE SYSTEM ────────────────────────────────── */
+.page { display: none; min-height: 100vh; padding-top: 64px; }
+.page.active { display: block; }
+
+/* ─── NAV ────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 64px;
+  background: rgba(250,250,248,.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1080px; margin: 0 auto; padding: 0 48px;
+  height: 100%; display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+  font-family: 'Instrument Serif', serif; font-size: 19px;
+  color: var(--ink); display: flex; align-items: center; gap: 9px;
+}
+.logo-leaf {
+  width: 30px; height: 30px; border-radius: 8px;
+  background: var(--blue); color: #fff;
+  display: flex; align-items: center; justify-content: center; font-size: 14px;
+}
+.logo em { color: var(--blue); font-style: normal; }
+.nav-links { display: flex; align-items: center; gap: 8px; }
+.nav-links a {
+  font-size: 14px; color: var(--body); padding: 7px 14px;
+  border-radius: 8px; transition: background .15s, color .15s;
+}
+.nav-links a:hover { background: var(--border); color: var(--ink); }
+.nav-links .cta { background: var(--ink); color: #fff; font-weight: 600; padding: 8px 18px; }
+.nav-links .cta:hover { background: #333; }
+
+/* ─── HERO ───────────────────────────────────────── */
+.hero {
+  min-height: calc(100vh - 64px);
+  display: flex; align-items: center;
+  padding: 80px 0 60px;
+  background: var(--bg);
+}
+.hero-inner {
+  max-width: 1080px; margin: 0 auto; padding: 0 48px;
+  display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: center;
+}
+.hero h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(44px, 6vw, 72px); line-height: 1.07;
+  color: var(--ink); margin-bottom: 20px; font-weight: 400;
+}
+.hero h1 em { color: var(--blue); font-style: italic; }
+.hero-sub {
+  font-size: 16px; line-height: 1.75; color: var(--body);
+  max-width: 480px; margin-bottom: 36px; font-weight: 400;
+}
+.hero-actions { display: flex; gap: 10px; margin-bottom: 48px; }
+.hero-proof {
+  display: flex; flex-direction: column; gap: 10px;
+}
+.proof-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; color: var(--body);
+}
+.proof-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+
+/* Journey card */
+.journey-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--rL); padding: 32px; box-shadow: var(--shadowM);
+}
+.journey-card-label {
+  font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 24px;
+}
+.journey-steps { display: flex; flex-direction: column; gap: 0; }
+.j-step { display: flex; gap: 16px; align-items: flex-start; }
+.j-line {
+  display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 36px;
+}
+.j-circle {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; flex-shrink: 0;
+}
+.j-circle.blue { background: var(--blue-dim); }
+.j-circle.red  { background: var(--red-dim); }
+.j-circle.green{ background: rgba(46,125,94,.1); }
+.j-connector { width: 1px; height: 20px; background: var(--border); margin: 4px 0; }
+.j-text { padding-top: 8px; padding-bottom: 8px; }
+.j-text strong { font-size: 14px; font-weight: 600; color: var(--ink); display: block; margin-bottom: 2px; }
+.j-text span { font-size: 12px; color: var(--muted); }
+
+/* ─── SECTIONS ───────────────────────────────────── */
+section { padding: 88px 0; }
+.section-inner { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+.section-header { max-width: 540px; margin-bottom: 52px; }
+.section-header h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(30px,4vw,46px); line-height: 1.15; font-weight: 400;
+  color: var(--ink); margin-bottom: 12px;
+}
+.section-header h2 em { color: var(--blue); font-style: italic; }
+.section-header p { font-size: 15px; line-height: 1.7; color: var(--body); }
+
+/* ─── PATHWAY ─────────────────────────────────────── */
+.pathway { background: var(--surface); }
+.steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--rL); overflow: hidden; }
+.step-cell {
+  background: var(--surface); padding: 40px 32px;
+  transition: background .2s;
+}
+.step-cell:hover { background: var(--bg); }
+.step-num {
+  font-family: 'Instrument Serif', serif; font-size: 48px; font-weight: 400;
+  color: var(--border); line-height: 1; margin-bottom: 20px;
+}
+.step-cell h3 { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+.step-cell p { font-size: 14px; line-height: 1.7; color: var(--body); }
+.step-badge {
+  display: inline-block; margin-top: 16px; padding: 4px 12px;
+  border-radius: 100px; font-size: 11px; font-weight: 600;
+}
+.badge-blue { background: var(--blue-dim); color: var(--blue); }
+.badge-red  { background: var(--red-dim);  color: var(--red); }
+.badge-green{ background: rgba(46,125,94,.1); color: var(--green); }
+
+/* ─── WHY ─────────────────────────────────────────── */
+.why { background: var(--bg); }
+.why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.why-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--rL); padding: 36px 30px;
+  transition: box-shadow .2s, transform .2s;
+}
+.why-card:hover { box-shadow: var(--shadowM); transform: translateY(-2px); }
+.why-icon { font-size: 24px; margin-bottom: 18px; }
+.why-card h3 { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+.why-card p  { font-size: 14px; line-height: 1.7; color: var(--body); }
+
+/* ─── SPLIT CTA ───────────────────────────────────── */
+.split { background: var(--surface); }
+.split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.split-nurse {
+  background: var(--blue); border-radius: var(--rL); padding: 52px 44px;
+  position: relative; overflow: hidden;
+}
+.split-nurse::after {
+  content: 'RN'; font-family: 'Instrument Serif', serif;
+  position: absolute; right: -10px; bottom: -30px; font-size: 160px;
+  color: rgba(255,255,255,.06); line-height: 1; pointer-events: none;
+}
+.split-nurse h2 { font-family:'Instrument Serif',serif; font-size: 30px; font-weight:400; color:#fff; line-height:1.2; margin-bottom:12px; }
+.split-nurse p  { font-size: 14px; color: rgba(255,255,255,.7); line-height:1.75; margin-bottom:28px; }
+.btn-white { background:#fff; color:var(--blue); font-weight:600; }
+.btn-white:hover { background:#f0f7ff; transform:translateY(-1px); }
+
+.split-hospital {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--rL); padding: 52px 44px; position: relative; overflow:hidden;
+}
+.split-hospital::after {
+  content: '✦'; font-family: serif;
+  position: absolute; right: 32px; bottom: 20px; font-size: 100px;
+  color: rgba(26,95,168,.06); line-height: 1; pointer-events: none;
+}
+.split-hospital h2 { font-family:'Instrument Serif',serif; font-size:30px; font-weight:400; color:var(--ink); line-height:1.2; margin-bottom:12px; }
+.split-hospital p  { font-size:14px; color:var(--body); line-height:1.75; margin-bottom:28px; }
+
+/* ─── NURSE INTAKE ───────────────────────────────── */
+.intake-page {
+  min-height: calc(100vh - 64px);
+  background: var(--bg);
+  display: flex; flex-direction: column; align-items: center;
+  padding: 60px 24px 80px;
+}
+.intake-header { text-align: center; max-width: 460px; margin-bottom: 40px; }
+.intake-header h1 {
+  font-family: 'Instrument Serif', serif; font-size: clamp(32px,4vw,46px); font-weight:400;
+  color: var(--ink); margin-bottom: 12px; line-height: 1.15;
+}
+.intake-header h1 em { color: var(--blue); font-style: italic; }
+.intake-header p { font-size: 14px; color: var(--body); line-height: 1.65; }
+
+/* Progress */
+.prog-wrap { width: 100%; max-width: 620px; margin-bottom: 36px; }
+.prog-steps {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;
+}
+.prog-step {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 500; color: var(--muted); transition: color .25s;
+}
+.prog-step.active { color: var(--blue); }
+.prog-step.done   { color: var(--green); }
+.prog-n {
+  width: 26px; height: 26px; border-radius: 50%;
+  border: 1.5px solid var(--border); background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 600; color: var(--muted); transition: all .25s;
+}
+.prog-step.active .prog-n { border-color: var(--blue); background: var(--blue); color: #fff; }
+.prog-step.done   .prog-n { border-color: var(--green); background: var(--green); color: #fff; }
+.prog-bar { height: 3px; background: var(--border); border-radius: 100px; overflow: hidden; }
+.prog-fill { height: 100%; background: var(--blue); border-radius: 100px; transition: width .45s ease; }
+
+/* Form card */
+.form-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--rL); padding: 44px 48px;
+  width: 100%; max-width: 620px;
+  box-shadow: var(--shadow);
+}
+.step-panel { display: none; }
+.step-panel.active { display: block; animation: up .35s ease both; }
+.step-h { font-family: 'Instrument Serif', serif; font-size: 26px; font-weight: 400; color: var(--ink); margin-bottom: 4px; }
+.step-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; line-height: 1.55; }
+
+/* Fields */
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.row1 { margin-bottom: 12px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: 12px; font-weight: 600; color: var(--ink); letter-spacing: .02em; }
+.field input, .field select, .field textarea {
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 9px; padding: 10px 13px;
+  font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--ink);
+  outline: none; transition: border-color .18s, background .18s;
+  -webkit-appearance: none; appearance: none;
+}
+.field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%239a9790'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 13px center; padding-right: 34px;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--blue); background: #fff;
+}
+.field input::placeholder, .field textarea::placeholder { color: #c0bdb8; }
+.field textarea { resize: vertical; min-height: 76px; }
+.citizen-box {
+  display: flex; gap: 11px; align-items: flex-start;
+  background: var(--blue-dim); border: 1.5px solid rgba(26,95,168,.15);
+  border-radius: 10px; padding: 13px 16px; cursor: pointer; margin-bottom: 12px;
+}
+.citizen-box input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--blue); margin-top: 2px; flex-shrink: 0; }
+.citizen-box span { font-size: 13px; line-height: 1.55; color: var(--body); }
+.citizen-box span strong { color: var(--blue); }
+
+/* Map */
+.field-label { font-size: 12px; font-weight: 600; color: var(--ink); letter-spacing: .02em; margin-bottom: 8px; }
+.anywhere-row {
+  display: flex; align-items: center; gap: 10px; cursor: pointer;
+  padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 9px;
+  background: var(--bg); margin-bottom: 12px; transition: border-color .18s;
+}
+.anywhere-row.on { border-color: var(--red); background: var(--red-dim); }
+.tgl { width: 36px; height: 20px; border-radius: 100px; background: #ddd; position: relative; transition: background .22s; flex-shrink: 0; }
+.tgl.on { background: var(--red); }
+.tgl::after { content:''; position:absolute; top:3px; left:3px; width:14px; height:14px; border-radius:50%; background:#fff; transition:transform .22s; box-shadow:0 1px 2px rgba(0,0,0,.2); }
+.tgl.on::after { transform:translateX(16px); }
+.anywhere-row span { font-size: 13px; color: var(--ink); }
+.map-wrap {
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 10px; padding: 8px; margin-bottom: 8px;
+}
+.map-wrap svg { width:100%; height:auto; display:block; }
+.map-wrap path { fill:rgba(26,95,168,.07); stroke:rgba(26,95,168,.18); stroke-width:.7; cursor:pointer; transition:fill .18s; }
+.map-wrap path:hover { fill:rgba(26,95,168,.2); }
+.map-wrap path.on { fill:var(--blue)!important; stroke:var(--blue); }
+.map-hint { font-size: 11px; color: var(--muted); text-align: center; margin-bottom: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; min-height: 0; }
+.chip {
+  background: var(--blue-dim); border: 1px solid rgba(26,95,168,.2);
+  color: var(--blue); padding: 4px 10px; border-radius: 100px;
+  font-size: 12px; font-weight: 500; display: flex; align-items: center; gap: 5px;
+  cursor: pointer; transition: background .15s;
+}
+.chip:hover { background: rgba(26,95,168,.15); }
+.pills { display: flex; flex-wrap: wrap; gap: 7px; }
+.pill {
+  padding: 8px 16px; border: 1.5px solid var(--border); border-radius: 8px;
+  font-size: 13px; font-weight: 400; color: var(--body); cursor: pointer;
+  background: var(--bg); transition: all .18s; user-select: none;
+}
+.pill:hover  { border-color: var(--blue); color: var(--blue); }
+.pill.on { border-color: var(--blue); background: var(--blue-dim); color: var(--blue); font-weight: 500; }
+
+/* Upload */
+.upload-zone {
+  border: 2px dashed var(--border); border-radius: 10px;
+  background: var(--bg); padding: 28px; text-align: center;
+  cursor: pointer; position: relative; transition: border-color .18s, background .18s;
+  margin-bottom: 12px;
+}
+.upload-zone:hover { border-color: #aaa; background: #f5f5f2; }
+.upload-zone.done { border-color: var(--green); background: rgba(46,125,94,.04); border-style: solid; }
+.upload-zone input[type=file] { position:absolute; inset:0; opacity:0; cursor:pointer; width:100%; height:100%; }
+.upload-icon { font-size: 22px; margin-bottom: 7px; opacity: .5; }
+.upload-zone h4 { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+.upload-zone p { font-size: 12px; color: var(--muted); }
+.upload-zone.done h4 { color: var(--green); }
+
+/* Form nav */
+.form-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border);
+}
+.btn-back {
+  background: transparent; border: 1.5px solid var(--border); color: var(--muted);
+  padding: 10px 20px; border-radius: 9px; font-family:'DM Sans',sans-serif;
+  font-size: 13px; cursor: pointer; transition: all .18s;
+}
+.btn-back:hover { border-color: #c0bdb8; color: var(--ink); }
+.btn-fwd {
+  background: var(--blue); color: #fff;
+  padding: 11px 24px; border-radius: 9px; font-family:'DM Sans',sans-serif;
+  font-size: 14px; font-weight: 600; border: none; cursor: pointer;
+  display: flex; align-items: center; gap: 7px;
+  transition: background .18s, transform .15s, box-shadow .18s;
+  box-shadow: 0 2px 8px rgba(26,95,168,.25);
+}
+.btn-fwd:hover { background: #1a6fc4; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(26,95,168,.3); }
+.btn-fwd.submit { background: var(--red); box-shadow: 0 2px 8px rgba(201,74,43,.25); }
+.btn-fwd.submit:hover { background: #d95835; box-shadow: 0 4px 14px rgba(201,74,43,.3); }
+
+/* Confirm */
+.confirm {
+  text-align: center; padding: 8px 0;
+}
+.confirm-check {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(46,125,94,.1); border: 1.5px solid var(--green);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; margin: 0 auto 20px;
+}
+.confirm h2 { font-family:'Instrument Serif',serif; font-size: 30px; font-weight:400; margin-bottom:10px; }
+.confirm > p { font-size: 14px; color: var(--body); line-height: 1.7; max-width: 360px; margin: 0 auto 24px; }
+.confirm-summary {
+  background: var(--bg); border: 1px solid var(--border); border-radius: 12px;
+  padding: 18px 20px; text-align: left; margin-bottom: 24px;
+}
+.summary-row {
+  display: flex; justify-content: space-between;
+  padding: 8px 0; border-bottom: 1px solid var(--border);
+}
+.summary-row:last-child { border-bottom: none; }
+.summary-row span:first-child { font-size: 12px; color: var(--muted); }
+.summary-row span:last-child  { font-size: 12px; font-weight: 600; color: var(--ink); text-align: right; max-width: 220px; }
+
+/* ─── EMPLOYER PAGE ──────────────────────────────── */
+.emp-hero {
+  background: var(--ink); padding: 96px 0 80px; position: relative; overflow: hidden;
+}
+.emp-hero-bg {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 55% 90% at 90% 50%, rgba(26,95,168,.18) 0%, transparent 60%);
+}
+.emp-hero-inner { max-width:1080px; margin:0 auto; padding:0 48px; position:relative; z-index:1; max-width:700px; }
+.emp-tag2 {
+  display: inline-block; padding: 5px 14px; border-radius: 100px;
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+  font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: rgba(255,255,255,.6); margin-bottom: 22px;
+}
+.emp-hero h1 {
+  font-family: 'Instrument Serif', serif; font-weight: 400; line-height: 1.08;
+  font-size: clamp(36px, 5.5vw, 62px); color: #fff; margin-bottom: 16px;
+}
+.emp-hero h1 em { color: #80b8e8; font-style: italic; }
+.emp-hero p { font-size: 16px; line-height: 1.75; color: rgba(255,255,255,.55); max-width:520px; margin-bottom: 36px; }
+.emp-btns { display: flex; gap: 10px; }
+
+/* Promise band */
+.promise {
+  background: var(--blue); padding: 28px 0;
+}
+.promise-inner {
+  max-width:1080px; margin:0 auto; padding:0 48px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+}
+.promise h2 {
+  font-family: 'Instrument Serif', serif; font-size: 22px; font-weight: 400;
+  color: #fff; max-width: 480px; line-height: 1.35;
+}
+.promise h2 em { font-style: italic; color: rgba(255,255,255,.7); }
+.promise-icons { display: flex; gap: 28px; flex-wrap: wrap; }
+.pi { display: flex; align-items: center; gap: 7px; color: rgba(255,255,255,.85); font-size: 13px; font-weight: 500; }
+.pi span:first-child { font-size: 16px; }
+
+/* How it works */
+.how { background: var(--bg); }
+.workflow {
+  display: flex; gap: 0; margin-top: 48px;
+  border: 1px solid var(--border); border-radius: var(--rL); overflow: hidden;
+  background: var(--border);
+}
+.wf-step {
+  flex: 1; background: var(--surface); padding: 36px 28px;
+  transition: background .18s;
+}
+.wf-step:hover { background: var(--bg); }
+.wf-num {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1.5px solid var(--border); background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; color: var(--blue);
+  margin-bottom: 16px;
+}
+.wf-step h4 { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 7px; }
+.wf-step p  { font-size: 12px; line-height: 1.65; color: var(--body); }
+
+/* What you receive */
+.receive { background: var(--surface); }
+.receive-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 16px; margin-top: 48px; }
+.rc {
+  padding: 28px 22px; border: 1px solid var(--border);
+  border-radius: var(--rL); transition: box-shadow .2s, transform .2s; background: var(--bg);
+}
+.rc:hover { box-shadow: var(--shadowM); transform: translateY(-2px); }
+.rc-icon { font-size: 22px; margin-bottom: 12px; }
+.rc h4 { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
+.rc p  { font-size: 12px; line-height: 1.6; color: var(--body); }
+
+/* TN explainer */
+.tn { background: var(--ink); padding: 88px 0; }
+.tn-inner {
+  max-width: 1080px; margin: 0 auto; padding: 0 48px;
+  display: grid; grid-template-columns: 1fr 1.9fr; gap: 72px; align-items: start;
+}
+.tn-lbl { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#80b8e8; margin-bottom:14px; }
+.tn h2 { font-family:'Instrument Serif',serif; font-size:34px; font-weight:400; color:#fff; line-height:1.15; }
+.tn-body p { font-size:14px; line-height:1.8; color:rgba(255,255,255,.5); margin-bottom:22px; }
+.tn-facts { display:flex; flex-direction:column; gap:10px; }
+.tn-fact {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+  border-radius: 10px; padding: 14px 16px; display: flex; gap: 12px;
+}
+.tn-fact-i { font-size:14px; flex-shrink:0; padding-top:1px; }
+.tn-fact p { font-size:13px; color:rgba(255,255,255,.5); line-height:1.65; margin:0; }
+.tn-fact p strong { color:#fff; font-weight:600; display:block; margin-bottom:2px; }
+
+/* Employer CTA section */
+.emp-cta { background: var(--bg); }
+.cta-block {
+  max-width: 900px; margin: 0 auto;
+  background: var(--blue); border-radius: 24px; overflow: hidden;
+  display: grid; grid-template-columns: 1.4fr 1fr;
+  box-shadow: 0 4px 24px rgba(26,95,168,.2);
+}
+.cta-text { padding: 60px 52px; }
+.cta-text h2 { font-family:'Instrument Serif',serif; font-size:clamp(26px,3vw,36px); font-weight:400; color:#fff; line-height:1.2; margin-bottom:10px; }
+.cta-text p { font-size:14px; color:rgba(255,255,255,.6); line-height:1.75; }
+.cta-actions {
+  background: rgba(0,0,0,.12); padding: 60px 44px;
+  display: flex; flex-direction: column; gap: 10px; justify-content: center;
+}
+.cta-btn-p {
+  background: #fff; color: var(--blue); font-weight:700;
+  padding:14px 20px; border-radius:10px; border:none; cursor:pointer;
+  font-family:'DM Sans',sans-serif; font-size:14px; text-align:center;
+  display:flex; align-items:center; justify-content:center; gap:7px;
+  transition:transform .15s, box-shadow .15s;
+}
+.cta-btn-p:hover { transform:translateY(-1px); box-shadow:0 4px 14px rgba(0,0,0,.15); }
+.cta-btn-s {
+  background:transparent; color:rgba(255,255,255,.8);
+  padding:14px 20px; border-radius:10px; border:1.5px solid rgba(255,255,255,.2);
+  cursor:pointer; font-family:'DM Sans',sans-serif; font-size:14px;
+  display:flex; align-items:center; justify-content:center; gap:7px;
+  transition:border-color .18s, color .18s;
+}
+.cta-btn-s:hover { border-color:rgba(255,255,255,.5); color:#fff; }
+
+/* ─── FOOTER ─────────────────────────────────────── */
+footer {
+  background: var(--ink); padding: 32px 48px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+.footer-logo { font-family:'Instrument Serif',serif; font-size:18px; color:#fff; display:flex; align-items:center; gap:8px; }
+.footer-logo em { color:#80b8e8; font-style:normal; }
+.footer-logo .logo-leaf { width:26px; height:26px; font-size:12px; }
+footer p { font-size:13px; color:rgba(255,255,255,.35); }
+.footer-right a { font-size:13px; color:rgba(255,255,255,.45); transition:color .15s; }
+.footer-right a:hover { color:#80b8e8; }
+.footer-right small { display:block; font-size:11px; color:rgba(255,255,255,.2); margin-top:3px; text-align:right; }
+
+/* ─── MODALS ─────────────────────────────────────── */
+.overlay {
+  display:none; position:fixed; inset:0; z-index:400;
+  background:rgba(28,27,24,.55); backdrop-filter:blur(6px);
+  align-items:center; justify-content:center; padding:24px;
+}
+.overlay.open { display:flex; }
+.modal {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--rL); padding:36px 32px;
+  width:100%; max-width:460px; position:relative;
+  animation:up .3s ease both;
+  box-shadow: 0 8px 48px rgba(0,0,0,.18);
+}
+.modal-x {
+  position:absolute; top:12px; right:12px;
+  width:28px; height:28px; border-radius:50%;
+  background:var(--bg); border:1px solid var(--border);
+  color:var(--muted); display:flex; align-items:center; justify-content:center;
+  cursor:pointer; font-size:13px; transition:background .15s;
+}
+.modal-x:hover { background:var(--border); }
+.modal h3 { font-family:'Instrument Serif',serif; font-size:22px; font-weight:400; margin-bottom:5px; }
+.modal > p { font-size:13px; color:var(--muted); margin-bottom:20px; line-height:1.55; }
+.modal .row2 { margin-bottom:10px; }
+.modal .row1 { margin-bottom:10px; }
+.modal .btn-fwd { width:100%; justify-content:center; margin-top:6px; }
+
+/* ─── RESPONSIVE ─────────────────────────────────── */
+@media(max-width:960px){
+  .wrap,.nav-inner,.section-inner,.promise-inner{padding:0 24px;}
+  .hero-inner{grid-template-columns:1fr;gap:0;padding:0 24px;}
+  .journey-card{display:none;}
+  .steps-grid,.why-grid,.split-grid,.workflow{grid-template-columns:1fr;background:none;border:none;border-radius:0;gap:16px;}
+  .step-cell{border:1px solid var(--border);border-radius:var(--rL);}
+  .wf-step{border:1px solid var(--border);border-radius:var(--rL);}
+  .receive-grid{grid-template-columns:1fr 1fr;}
+  .tn-inner{grid-template-columns:1fr;padding:0 24px;gap:36px;}
+  .cta-block{grid-template-columns:1fr;}.cta-actions{padding:0 52px 52px;}
+  .emp-hero-inner{padding:0 24px;}
+  footer{padding:24px;flex-direction:column;align-items:flex-start;}
+  .footer-right small{text-align:left;}
+  .form-card{padding:28px 20px;}
+  .row2{grid-template-columns:1fr;}
+  nav{padding:0 20px;}
+  section{padding:60px 0;}
+}
+@media(max-width:600px){
+  .nav-links a:not(.cta){display:none;}
+  .nav-links{gap:4px;}
+  .nav-links .cta{padding:8px 14px;font-size:13px;}
+  .hero{padding:48px 0 48px;}
+  .hero h1{font-size:38px;}
+  .hero-actions{flex-direction:column;}
+  .hero-actions .btn{width:100%;justify-content:center;}
+  .emp-btns{flex-direction:column;}
+  .emp-btns .btn{width:100%;justify-content:center;}
+  .receive-grid{grid-template-columns:1fr;}
+  .cta-actions{padding:0 28px 40px;}
+  .promise-icons{gap:16px;}
+  .split-nurse,.split-hospital{padding:36px 28px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#" onclick="show('landing');return false;">
+      <div class="logo-leaf">🍁</div>
+      My<em>NurseVisa</em>
+    </a>
+    <div class="nav-links">
+      <a href="#" onclick="show('nurse');return false;">For Nurses</a>
+      <a href="#" onclick="show('employer');return false;">For Facilities</a>
+      <a class="cta" href="#" onclick="show('nurse');return false;">Apply Now →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════ LANDING ════════════════════ -->
+<div id="page-landing" class="page active">
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="tag au">TN Visa · EB‑3 · US Licensure</span>
+        <h1 class="au d1">Your nursing career.<br><em>Your</em> American life.</h1>
+        <p class="hero-sub au d2">We help Canadian Registered Nurses move to the United States — from your first TN Visa all the way to your Green Card. Immigration handled. License managed. Relocation supported.</p>
+        <div class="hero-actions au d3">
+          <a class="btn btn-blue btn-lg" href="#" onclick="show('nurse');return false;">Apply for free →</a>
+          <a class="btn btn-ghost btn-lg" href="#" onclick="show('employer');return false;">I hire nurses</a>
+        </div>
+        <div class="hero-proof au d4">
+          <div class="proof-item"><div class="proof-dot"></div>Canadian citizens only — no green card required to start</div>
+          <div class="proof-item"><div class="proof-dot"></div>Full credentialing and state licensure included</div>
+          <div class="proof-item"><div class="proof-dot"></div>EB‑3 Green Card pathway from day one</div>
+        </div>
+      </div>
+      <div class="journey-card au d2">
+        <div class="journey-card-label">Your Journey</div>
+        <div class="journey-steps">
+          <div class="j-step">
+            <div class="j-line"><div class="j-circle blue">🛂</div><div class="j-connector"></div></div>
+            <div class="j-text"><strong>TN Visa</strong><span>Enter the US as a Canadian RN</span></div>
+          </div>
+          <div class="j-step">
+            <div class="j-line"><div class="j-circle red">🏥</div><div class="j-connector"></div></div>
+            <div class="j-text"><strong>Work &amp; Build</strong><span>3‑year US career begins</span></div>
+          </div>
+          <div class="j-step">
+            <div class="j-line"><div class="j-circle green">🌎</div></div>
+            <div class="j-text"><strong>Green Card</strong><span>EB‑3 path to citizenship</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pathway">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="tag">Your Journey</span>
+        <h2>Three stages.<br><em>One team beside you</em> the whole way.</h2>
+        <p>The path from your Canadian nursing license to your American life is clearer than you think.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-cell">
+          <div class="step-num">01</div>
+          <h3>Your TN Visa</h3>
+          <p>As a Canadian citizen RN, you qualify for a TN‑1 Work Visa under USMCA. It's employer-sponsored, valid for 3 years, and renewable. We prepare every document — you just show up confident.</p>
+          <span class="step-badge badge-blue">Your entry point</span>
+        </div>
+        <div class="step-cell">
+          <div class="step-num">02</div>
+          <h3>Work &amp; Build Your Life</h3>
+          <p>Start your US position with full pay and benefits. Build credit, community, and roots. After 1–2 years, your employer begins your EB‑3 sponsorship while you keep working.</p>
+          <span class="step-badge badge-red">Years 1–3</span>
+        </div>
+        <div class="step-cell">
+          <div class="step-num">03</div>
+          <h3>Green Card &amp; Citizenship</h3>
+          <p>Your employer sponsors your EB‑3 immigrant visa. Permanent residency is yours. After five years, you're eligible for US citizenship. We track every milestone with you.</p>
+          <span class="step-badge badge-green">Your permanent future</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="tag">Why My Nurse Visa</span>
+        <h2>We don't just find you a job.<br><em>We help you build a life.</em></h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">🛂</div>
+          <h3>Immigration — Handled</h3>
+          <p>TN Visa documents, employer letters, border prep, and your full EB‑3 roadmap. Our immigration partners manage every form. You never have to guess what comes next.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">📜</div>
+          <h3>US Licensure — Managed</h3>
+          <p>We guide you through state nursing board endorsement and NCLEX support if you need it. You arrive licensed, credentialed, and ready to work on day one.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🏡</div>
+          <h3>Relocation — Supported</h3>
+          <p>Moving country is a lot. We help with housing guidance, community connections, and real support for you and your family through arrival and beyond.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="split">
+    <div class="section-inner">
+      <div class="split-grid">
+        <div class="split-nurse">
+          <h2>Ready to start your American nursing career?</h2>
+          <p>Tell us where you want to go and what you're looking for. We match you with the right facility and handle everything from there.</p>
+          <a class="btn btn-white" href="#" onclick="show('nurse');return false;">Apply now — it's free →</a>
+        </div>
+        <div class="split-hospital">
+          <h2>Looking for qualified Canadian RNs for your team?</h2>
+          <p>Pre‑screened, TN‑eligible nurses with state licensure handled and a 3‑year commitment. We manage the entire process so your HR team doesn't have to.</p>
+          <a class="btn btn-blue" href="#" onclick="show('employer');return false;">See how it works →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo"><div class="logo-leaf">🍁</div>My<em>NurseVisa</em></div>
+    <p>Helping Canadian nurses build American futures.</p>
+    <div class="footer-right">
+      <a href="mailto:hello@mynursevisa.com">hello@mynursevisa.com</a>
+      <small>© 2025 MyNurseVisa.com · All rights reserved.</small>
+    </div>
+  </footer>
+</div>
+
+<!-- ════════════════════ NURSE INTAKE ════════════════════ -->
+<div id="page-nurse" class="page">
+  <div class="intake-page">
+    <div class="intake-header">
+      <h1>Let's find your <em>perfect match.</em></h1>
+      <p>Tell us about yourself and where you want to go. Our team will reach out personally within 48 hours.</p>
+    </div>
+
+    <div class="prog-wrap">
+      <div class="prog-steps">
+        <div class="prog-step active" id="ps1"><div class="prog-n">1</div><span>About You</span></div>
+        <div class="prog-step" id="ps2"><div class="prog-n">2</div><span>Preferences</span></div>
+        <div class="prog-step" id="ps3"><div class="prog-n">3</div><span>Experience</span></div>
+        <div class="prog-step" id="ps4"><div class="prog-n">4</div><span>Documents</span></div>
+      </div>
+      <div class="prog-bar"><div class="prog-fill" id="pf" style="width:25%"></div></div>
+    </div>
+
+    <div class="form-card">
+
+      <!-- Step 1 -->
+      <div class="step-panel active" id="s1">
+        <div class="step-h">About You</div>
+        <div class="step-sub">Just the basics. Everything you share is kept strictly confidential.</div>
+        <div class="row2">
+          <div class="field"><label>First Name</label><input id="fn" type="text" placeholder="Sarah"></div>
+          <div class="field"><label>Last Name</label><input id="ln" type="text" placeholder="Tremblay"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>Email</label><input type="email" placeholder="sarah@example.com"></div>
+          <div class="field"><label>Phone</label><input type="tel" placeholder="+1 (416) 555-0100"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>Canadian Province</label>
+            <select id="prov">
+              <option value="">Select province</option>
+              <option>Ontario</option><option>British Columbia</option><option>Alberta</option>
+              <option>Quebec</option><option>Manitoba</option><option>Saskatchewan</option>
+              <option>Nova Scotia</option><option>New Brunswick</option>
+              <option>Newfoundland and Labrador</option><option>Prince Edward Island</option>
+              <option>Northwest Territories</option><option>Yukon</option><option>Nunavut</option>
+            </select>
+          </div>
+          <div class="field"><label>How did you hear about us?</label>
+            <select><option value="">Select one</option><option>Facebook / Social Media</option><option>Friend or Colleague</option><option>Google Search</option><option>WhatsApp Group</option><option>Other</option></select>
+          </div>
+        </div>
+        <label class="citizen-box">
+          <input type="checkbox" id="cit">
+          <span>I confirm I am a <strong>Canadian citizen</strong> (not just a permanent resident). Citizenship is required for TN Visa eligibility under USMCA.</span>
+        </label>
+        <div class="form-nav"><div></div><button class="btn-fwd" onclick="ns(2)">Next: Preferences →</button></div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step-panel" id="s2">
+        <div class="step-h">Where Do You Want to Go?</div>
+        <div class="step-sub">Click states on the map, or toggle open to anywhere if you're flexible.</div>
+        <div class="anywhere-row" id="arow" onclick="tgAnywhere()">
+          <div class="tgl" id="atgl"></div>
+          <span>I'm <strong>open to any state</strong> — find me the best opportunity</span>
+        </div>
+        <div class="field-label">Or select your preferred states:</div>
+        <div class="map-wrap" id="mapwrap">
+          <svg viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg">
+            <path id="WA" data-name="Washington" d="M112,50 L218,42 L228,95 L195,98 L180,115 L115,108 Z"/>
+            <path id="OR" data-name="Oregon" d="M112,108 L195,102 L205,185 L118,195 L108,160 Z"/>
+            <path id="CA" data-name="California" d="M108,192 L205,182 L212,290 L195,340 L162,370 L118,355 L98,305 L102,248 Z"/>
+            <path id="ID" data-name="Idaho" d="M195,58 L258,48 L272,130 L242,155 L215,158 L205,125 L195,100 Z"/>
+            <path id="NV" data-name="Nevada" d="M158,235 L212,228 L225,310 L195,342 L162,310 Z"/>
+            <path id="AZ" data-name="Arizona" d="M185,320 L270,312 L278,398 L218,418 L175,398 L165,368 Z"/>
+            <path id="MT" data-name="Montana" d="M215,42 L365,32 L375,112 L345,118 L258,128 L240,100 Z"/>
+            <path id="WY" data-name="Wyoming" d="M258,125 L368,115 L380,192 L270,200 Z"/>
+            <path id="CO" data-name="Colorado" d="M265,198 L385,188 L392,268 L272,278 Z"/>
+            <path id="NM" data-name="New Mexico" d="M268,275 L392,265 L400,358 L278,368 Z"/>
+            <path id="ND" data-name="North Dakota" d="M365,32 L495,26 L505,98 L375,108 Z"/>
+            <path id="SD" data-name="South Dakota" d="M372,108 L505,98 L515,175 L382,185 Z"/>
+            <path id="NE" data-name="Nebraska" d="M378,185 L515,172 L525,238 L385,248 Z"/>
+            <path id="KS" data-name="Kansas" d="M382,248 L522,235 L528,308 L388,318 Z"/>
+            <path id="OK" data-name="Oklahoma" d="M385,318 L525,305 L535,368 L425,378 L388,375 Z"/>
+            <path id="TX" data-name="Texas" d="M345,368 L528,355 L548,428 L535,478 L488,508 L428,515 L378,492 L325,455 L312,418 Z"/>
+            <path id="MN" data-name="Minnesota" d="M492,25 L568,20 L580,95 L560,98 L530,95 L505,95 Z"/>
+            <path id="IA" data-name="Iowa" d="M508,158 L575,148 L588,215 L512,225 Z"/>
+            <path id="MO" data-name="Missouri" d="M510,222 L590,210 L598,285 L555,295 L512,290 Z"/>
+            <path id="AR" data-name="Arkansas" d="M512,292 L598,282 L605,348 L515,358 Z"/>
+            <path id="LA" data-name="Louisiana" d="M515,358 L602,345 L612,398 L578,418 L548,428 L522,408 Z"/>
+            <path id="WI" data-name="Wisconsin" d="M545,75 L612,68 L622,142 L575,148 L548,128 Z"/>
+            <path id="IL" data-name="Illinois" d="M575,145 L622,138 L632,218 L590,228 Z"/>
+            <path id="MS" data-name="Mississippi" d="M572,298 L608,285 L618,355 L578,365 Z"/>
+            <path id="MI" data-name="Michigan" d="M595,62 L662,55 L672,118 L642,128 L620,135 L608,108 Z"/>
+            <path id="IN" data-name="Indiana" d="M618,135 L662,125 L672,198 L628,208 Z"/>
+            <path id="OH" data-name="Ohio" d="M658,122 L712,112 L722,185 L668,195 Z"/>
+            <path id="KY" data-name="Kentucky" d="M598,228 L688,215 L698,268 L608,278 Z"/>
+            <path id="TN" data-name="Tennessee" d="M602,278 L700,265 L712,308 L605,318 Z"/>
+            <path id="AL" data-name="Alabama" d="M608,318 L668,308 L678,388 L618,398 Z"/>
+            <path id="GA" data-name="Georgia" d="M668,308 L722,295 L732,375 L688,388 L678,388 Z"/>
+            <path id="FL" data-name="Florida" d="M645,388 L732,372 L748,408 L742,455 L718,488 L688,498 L658,478 L638,448 Z"/>
+            <path id="SC" data-name="South Carolina" d="M718,295 L762,282 L772,335 L728,348 Z"/>
+            <path id="NC" data-name="North Carolina" d="M705,265 L795,248 L808,288 L718,298 Z"/>
+            <path id="VA" data-name="Virginia" d="M698,235 L798,218 L808,258 L712,272 Z"/>
+            <path id="WV" data-name="West Virginia" d="M698,195 L748,188 L758,238 L705,248 Z"/>
+            <path id="PA" data-name="Pennsylvania" d="M718,165 L798,155 L808,215 L722,225 Z"/>
+            <path id="NY" data-name="New York" d="M715,112 L808,98 L818,162 L808,168 L722,178 Z"/>
+            <path id="MD" data-name="Maryland" d="M758,235 L808,228 L815,258 L762,265 Z"/>
+            <path id="DE" data-name="Delaware" d="M798,225 L820,220 L825,248 L800,252 Z"/>
+            <path id="NJ" data-name="New Jersey" d="M808,188 L832,182 L838,228 L812,232 Z"/>
+            <path id="CT" data-name="Connecticut" d="M828,155 L858,148 L862,178 L830,182 Z"/>
+            <path id="RI" data-name="Rhode Island" d="M858,148 L872,145 L875,168 L858,172 Z"/>
+            <path id="MA" data-name="Massachusetts" d="M808,128 L875,118 L878,148 L825,155 Z"/>
+            <path id="VT" data-name="Vermont" d="M808,95 L832,88 L835,128 L810,132 Z"/>
+            <path id="NH" data-name="New Hampshire" d="M828,82 L852,75 L858,118 L830,122 Z"/>
+            <path id="ME" data-name="Maine" d="M848,52 L895,42 L902,98 L852,108 Z"/>
+            <path id="AK" data-name="Alaska" d="M62,448 L175,438 L188,512 L158,532 L72,538 Z"/>
+            <path id="HI" data-name="Hawaii" d="M228,518 L308,510 L315,548 L230,552 Z"/>
+          </svg>
+        </div>
+        <p class="map-hint">Click a state to select · Click again to deselect</p>
+        <div class="chips" id="chips"></div>
+        <div class="field" style="margin-top:18px;">
+          <label>Preferred Work Setting</label>
+          <div class="pills">
+            <div class="pill" onclick="tgPill(this)">Hospital / Acute Care</div>
+            <div class="pill" onclick="tgPill(this)">Outpatient Clinic</div>
+            <div class="pill" onclick="tgPill(this)">Long-Term Care</div>
+            <div class="pill" onclick="tgPill(this)">Rehabilitation</div>
+            <div class="pill" onclick="tgPill(this)">Home Health</div>
+            <div class="pill" onclick="tgPill(this)">Open to Any</div>
+          </div>
+        </div>
+        <div class="form-nav">
+          <button class="btn-back" onclick="ps(1)">← Back</button>
+          <button class="btn-fwd" onclick="ns(3)">Next: Experience →</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step-panel" id="s3">
+        <div class="step-h">Your Experience</div>
+        <div class="step-sub">This helps us match you with the right facility and negotiate the best terms on your behalf.</div>
+        <div class="row2">
+          <div class="field"><label>Nursing Specialty</label>
+            <select id="spec">
+              <option value="">Select specialty</option>
+              <option>ICU / Critical Care</option><option>Emergency Room (ER)</option>
+              <option>Operating Room (OR)</option><option>Medical / Surgical</option>
+              <option>Pediatrics (PICU)</option><option>Neonatal ICU (NICU)</option>
+              <option>Labor &amp; Delivery</option><option>Oncology</option>
+              <option>Cardiac / Telemetry</option><option>Neurology</option>
+              <option>Rehabilitation</option><option>Long-Term Care</option>
+              <option>Community Health</option><option>Other</option>
+            </select>
+          </div>
+          <div class="field"><label>Years of RN Experience</label>
+            <select><option value="">Select</option><option>Less than 1 year</option><option>1–2 years</option><option>3–5 years</option><option>6–10 years</option><option>10+ years</option></select>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>NCLEX Status</label>
+            <select><option value="">Select</option><option>Passed (NCLEX-RN)</option><option>Scheduled / In Progress</option><option>Not yet started</option><option>Already US licensed</option></select>
+          </div>
+          <div class="field"><label>Timeline to Move</label>
+            <select id="tl"><option value="">Select</option><option>Ready now (0–2 months)</option><option>3–6 months</option><option>6–12 months</option><option>12+ months</option></select>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>Desired Annual Salary (USD)</label>
+            <select><option value="">Select</option><option>$65,000–$80,000</option><option>$80,000–$95,000</option><option>$95,000–$115,000</option><option>$115,000–$135,000</option><option>$135,000+</option><option>Open to offer</option></select>
+          </div>
+          <div class="field"><label>Shift Preference</label>
+            <select><option value="">Select</option><option>Days (7am–7pm)</option><option>Nights (7pm–7am)</option><option>Rotating</option><option>No preference</option></select>
+          </div>
+        </div>
+        <div class="row1">
+          <div class="field"><label>Anything else we should know? <span style="font-weight:400;color:var(--muted)">(Optional)</span></label>
+            <textarea placeholder="Family considerations, specific cities, certifications, languages, health system preferences…"></textarea>
+          </div>
+        </div>
+        <div class="form-nav">
+          <button class="btn-back" onclick="ps(2)">← Back</button>
+          <button class="btn-fwd" onclick="ns(4)">Next: Documents →</button>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="step-panel" id="s4">
+        <div class="step-h">Your Documents</div>
+        <div class="step-sub">Files are encrypted and only reviewed by our placement team — never shared without your consent.</div>
+        <div class="field-label">Resume / CV <span style="font-weight:400;color:var(--muted)">PDF or Word — required</span></div>
+        <div class="upload-zone" id="uz1">
+          <input type="file" accept=".pdf,.doc,.docx" onchange="uploaded('uz1',this)">
+          <div class="upload-icon">📄</div>
+          <h4>Drop your resume here or click to browse</h4>
+          <p>PDF, DOC, DOCX · Max 10 MB</p>
+        </div>
+        <div class="field-label">Canadian Nursing License <span style="font-weight:400;color:var(--muted)">PDF or image — required</span></div>
+        <div class="upload-zone" id="uz2">
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" onchange="uploaded('uz2',this)">
+          <div class="upload-icon">🪪</div>
+          <h4>Drop your nursing license here or click to browse</h4>
+          <p>PDF, JPG, PNG · Max 10 MB</p>
+        </div>
+        <div class="field-label">Passport Bio-Page <span style="font-weight:400;color:var(--muted)">optional now, required later</span></div>
+        <div class="upload-zone" id="uz3">
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" onchange="uploaded('uz3',this)">
+          <div class="upload-icon">🛂</div>
+          <h4>Drop passport photo page here or click to browse</h4>
+          <p>PDF, JPG, PNG · Can be provided later</p>
+        </div>
+        <div class="form-nav">
+          <button class="btn-back" onclick="ps(3)">← Back</button>
+          <button class="btn-fwd submit" onclick="submit()">Submit My Application ✓</button>
+        </div>
+      </div>
+
+      <!-- Confirm -->
+      <div class="step-panel" id="sc">
+        <div class="confirm">
+          <div class="confirm-check">✓</div>
+          <h2>You're in the pipeline!</h2>
+          <p>A real member of our placement team will reach out personally within <strong style="color:var(--blue)">48 business hours</strong> to talk through your options.</p>
+          <div class="confirm-summary">
+            <div class="summary-row"><span>Name</span><span id="cn">—</span></div>
+            <div class="summary-row"><span>Specialty</span><span id="cs">—</span></div>
+            <div class="summary-row"><span>Preferred States</span><span id="cst">—</span></div>
+            <div class="summary-row"><span>Timeline</span><span id="ct">—</span></div>
+            <div class="summary-row"><span>Next Step</span><span style="color:var(--green)">Team review within 48 hrs</span></div>
+          </div>
+          <a class="btn btn-blue" href="#" onclick="show('landing');return false;">← Back to Home</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════ EMPLOYER ════════════════════ -->
+<div id="page-employer" class="page">
+
+  <section class="emp-hero">
+    <div class="emp-hero-bg"></div>
+    <div class="emp-hero-inner">
+      <div class="emp-tag2 au">For Healthcare Facilities</div>
+      <h1 class="au d1">Canadian RNs.<br><em>Visa-ready. License-ready.<br>Ready to start.</em></h1>
+      <p class="au d2">We recruit, credential, and immigrate qualified Canadian Registered Nurses directly to your facility. You get a vetted, fully work-authorized nurse with a 3-year commitment. We own every step in between.</p>
+      <div class="emp-btns au d3">
+        <button class="btn btn-red btn-lg" onclick="openM('req')">Request candidates →</button>
+        <button class="btn btn-ghost btn-lg" style="border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.7)" onclick="openM('call')">Book a 15-minute call</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="promise">
+    <div class="promise-inner">
+      <h2>One conversation. We handle credentials, <em>the TN Visa, and relocation.</em> You just hire.</h2>
+      <div class="promise-icons">
+        <div class="pi"><span>🇨🇦</span><span>Canadian Citizens</span></div>
+        <div class="pi"><span>📋</span><span>State Licensed</span></div>
+        <div class="pi"><span>🛂</span><span>TN Visa Managed</span></div>
+        <div class="pi"><span>🏡</span><span>Relocation Included</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="how">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="tag">Our Process</span>
+        <h2>Five steps from<br><em>introduction to first shift</em></h2>
+        <p>We own every step. Your team's only job is to show up to the interview and sign the offer letter.</p>
+      </div>
+      <div class="workflow">
+        <div class="wf-step"><div class="wf-num">1</div><h4>Intake &amp; Screen</h4><p>We source, interview, and vet Canadian RNs. Citizenship confirmed. Credentials reviewed. Only qualified candidates move forward.</p></div>
+        <div class="wf-step"><div class="wf-num">2</div><h4>Interview Scheduling</h4><p>We present a shortlist and coordinate interviews on your timeline. You meet candidates who are pre-screened and ready.</p></div>
+        <div class="wf-step"><div class="wf-num">3</div><h4>Credentialing</h4><p>State nursing board endorsement, NCLEX support, and credential verification. Your nurse arrives licensed and ready to practice.</p></div>
+        <div class="wf-step"><div class="wf-num">4</div><h4>Immigration</h4><p>Our immigration partners prepare all TN documentation. Your HR signs one employer letter. That is your full immigration involvement.</p></div>
+        <div class="wf-step"><div class="wf-num">5</div><h4>Relocation</h4><p>Housing guidance, community connections, and 90-day arrival support. A settled nurse is a retained nurse.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="receive">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="tag">What You Receive</span>
+        <h2>Everything in<br><em>one placement package</em></h2>
+      </div>
+      <div class="receive-grid">
+        <div class="rc"><div class="rc-icon">📄</div><h4>Verified Resume</h4><p>Work history confirmed, references checked, specialty experience documented before you meet the candidate.</p></div>
+        <div class="rc"><div class="rc-icon">🪪</div><h4>State License + TN Visa</h4><p>Your nurse arrives with US state licensure endorsed and all TN paperwork in order. Compliance is on us.</p></div>
+        <div class="rc"><div class="rc-icon">📅</div><h4>3-Year Commitment</h4><p>Every nurse commits to a minimum 3-year tenure — aligned with their TN Visa term.</p></div>
+        <div class="rc"><div class="rc-icon">🌎</div><h4>EB-3 Pathway</h4><p>We facilitate EB-3 Green Card sponsorship through your facility — a built-in retention tool.</p></div>
+        <div class="rc"><div class="rc-icon">📆</div><h4>Confirmed Start Date</h4><p>A realistic start date based on actual credentialing and immigration timelines. No surprises.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tn">
+    <div class="tn-inner">
+      <div>
+        <div class="tn-lbl">Plain English</div>
+        <h2>What is a TN Visa and what does it mean for your facility?</h2>
+      </div>
+      <div class="tn-body">
+        <p>The TN Visa is a non-immigrant work authorization under USMCA for Canadian citizens in professional roles including Registered Nurses. Your role as employer is limited to a signed offer letter. We handle everything else.</p>
+        <div class="tn-facts">
+          <div class="tn-fact"><div class="tn-fact-i">⚡</div><p><strong>Approved quickly</strong>TN Visas are typically approved at the border — often the same day. No lengthy petition process, no USCIS backlog.</p></div>
+          <div class="tn-fact"><div class="tn-fact-i">🔄</div><p><strong>Renewable with no cap</strong>Valid for 3 years and renewable indefinitely. Your nurse can grow with your team long-term.</p></div>
+          <div class="tn-fact"><div class="tn-fact-i">🏥</div><p><strong>Minimal HR burden</strong>We draft the employer support letter. Your HR reviews and signs it. That is the full extent of your involvement.</p></div>
+          <div class="tn-fact"><div class="tn-fact-i">🌱</div><p><strong>EB-3 is the long-term path</strong>After 1–2 years on TN, nurses can pursue EB-3 Green Card sponsorship — a powerful retention incentive at no additional HR cost to manage.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="emp-cta">
+    <div class="section-inner">
+      <div class="cta-block">
+        <div class="cta-text">
+          <h2>Ready to fill your open RN positions with qualified Canadian nurses?</h2>
+          <p>Tell us your specialty needs, target state, and timeline. We'll send a vetted shortlist within 5 business days. No commitment required.</p>
+        </div>
+        <div class="cta-actions">
+          <button class="cta-btn-p" onclick="openM('req')">📋 Request Candidates</button>
+          <button class="cta-btn-s" onclick="openM('call')">📞 Book a 15-Minute Call</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo"><div class="logo-leaf">🍁</div>My<em>NurseVisa</em></div>
+    <p>Helping Canadian nurses build American futures.</p>
+    <div class="footer-right">
+      <a href="mailto:facilities@mynursevisa.com">facilities@mynursevisa.com</a>
+      <small>© 2025 MyNurseVisa.com · All rights reserved.</small>
+    </div>
+  </footer>
+</div>
+
+<!-- Modals -->
+<div class="overlay" id="m-req">
+  <div class="modal">
+    <div class="modal-x" onclick="closeM('req')">✕</div>
+    <h3>Request Candidates</h3>
+    <p>Tell us what you need. We'll follow up with a vetted shortlist within 5 business days.</p>
+    <div class="row1"><div class="field"><label>Facility Name</label><input type="text" placeholder="Memorial Regional Medical Center"></div></div>
+    <div class="row1"><div class="field"><label>Your Name &amp; Role</label><input type="text" placeholder="Jane Smith, Nurse Recruiter"></div></div>
+    <div class="row1"><div class="field"><label>Work Email</label><input type="email" placeholder="jsmith@memorial.org"></div></div>
+    <div class="row2">
+      <div class="field"><label>Specialty Needed</label><select><option value="">Select</option><option>ICU / Critical Care</option><option>Emergency Room</option><option>Operating Room</option><option>Med / Surg</option><option>Pediatrics</option><option>Labor &amp; Delivery</option><option>Other</option></select></div>
+      <div class="field"><label>Positions to Fill</label><select><option>1–2</option><option>3–5</option><option>6–10</option><option>10+</option></select></div>
+    </div>
+    <div class="row1"><div class="field"><label>State</label><select><option value="">Select state</option><option>Texas</option><option>California</option><option>Florida</option><option>New York</option><option>Tennessee</option><option>Other</option></select></div></div>
+    <button class="btn-fwd" onclick="closeM('req');alert('Thank you! Our team will be in touch within 1 business day.')">Send Request →</button>
+  </div>
+</div>
+<div class="overlay" id="m-call">
+  <div class="modal">
+    <div class="modal-x" onclick="closeM('call')">✕</div>
+    <h3>Book a 15-Minute Call</h3>
+    <p>Speak directly with our team. No pitch — just real answers to your questions.</p>
+    <div class="row1"><div class="field"><label>Your Name</label><input type="text" placeholder="Jane Smith"></div></div>
+    <div class="row1"><div class="field"><label>Facility &amp; Role</label><input type="text" placeholder="Memorial Regional — Nurse Recruiter"></div></div>
+    <div class="row1"><div class="field"><label>Work Email</label><input type="email" placeholder="jsmith@memorial.org"></div></div>
+    <div class="row1"><div class="field"><label>Best Time</label><select><option value="">Select</option><option>Morning (8am–12pm CT)</option><option>Afternoon (12–5pm CT)</option><option>Either works</option></select></div></div>
+    <div class="row1"><div class="field"><label>Main question?</label><textarea placeholder="e.g. How long does the TN process take?"></textarea></div></div>
+    <button class="btn-fwd" onclick="closeM('call');alert('Great! We\'ll confirm a time within 1 business day.')">Book Call →</button>
+  </div>
+</div>
+
+<script>
+// Pages
+function show(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+
+// Multi-step form
+let step=1;
+const fills={1:'25%',2:'50%',3:'75%',4:'100%'};
+function ns(n){
+  document.getElementById('s'+step).classList.remove('active');
+  document.getElementById('ps'+step).classList.remove('active');
+  document.getElementById('ps'+step).classList.add('done');
+  step=n;
+  const el=document.getElementById('s'+n);
+  if(el)el.classList.add('active');
+  const pe=document.getElementById('ps'+n);
+  if(pe){pe.classList.add('active');pe.classList.remove('done');}
+  document.getElementById('pf').style.width=fills[n]||'100%';
+  window.scrollTo({top:64,behavior:'smooth'});
+}
+function ps(n){
+  document.getElementById('s'+step).classList.remove('active');
+  document.getElementById('ps'+step).classList.remove('active','done');
+  step=n;
+  document.getElementById('s'+n).classList.add('active');
+  const pe=document.getElementById('ps'+n);
+  pe.classList.add('active');pe.classList.remove('done');
+  document.getElementById('pf').style.width=fills[n];
+  window.scrollTo({top:64,behavior:'smooth'});
+}
+function submit(){
+  const nm=(document.getElementById('fn').value||'—')+' '+(document.getElementById('ln').value||'—');
+  const sp=document.getElementById('spec').value||'Not yet specified';
+  const t=document.getElementById('tl').value||'Not yet specified';
+  const st=states.length?states.join(', '):(anyw?'Open to Anywhere':'Not selected');
+  document.getElementById('cn').textContent=nm;
+  document.getElementById('cs').textContent=sp;
+  document.getElementById('cst').textContent=st;
+  document.getElementById('ct').textContent=t;
+  document.getElementById('s4').classList.remove('active');
+  document.getElementById('sc').classList.add('active');
+  document.getElementById('pf').style.width='100%';
+  window.scrollTo({top:64,behavior:'smooth'});
+}
+
+// Map
+let states=[],anyw=false;
+function tgAnywhere(){
+  anyw=!anyw;
+  document.getElementById('atgl').classList.toggle('on',anyw);
+  document.getElementById('arow').classList.toggle('on',anyw);
+  const mw=document.getElementById('mapwrap');
+  mw.style.opacity=anyw?'.3':'1';mw.style.pointerEvents=anyw?'none':'';
+  if(anyw){states=[];renderChips();document.querySelectorAll('#mapwrap path').forEach(p=>p.classList.remove('on'));}
+}
+document.querySelectorAll('#mapwrap path').forEach(p=>{
+  p.addEventListener('click',function(){
+    if(anyw)return;
+    const n=this.dataset.name;
+    if(this.classList.toggle('on'))states.push(n);
+    else states=states.filter(s=>s!==n);
+    renderChips();
+  });
+});
+function renderChips(){
+  document.getElementById('chips').innerHTML=states.map(s=>`<div class="chip" onclick="removeState('${s}')"><span>${s}</span><span style="opacity:.5">×</span></div>`).join('');
+}
+function removeState(n){states=states.filter(s=>s!==n);document.querySelector(`[data-name="${n}"]`)?.classList.remove('on');renderChips();}
+function tgPill(el){el.classList.toggle('on');}
+
+// Upload
+function uploaded(id,inp){
+  if(!inp.files[0])return;
+  const z=document.getElementById(id);
+  z.classList.add('done');
+  z.querySelector('h4').textContent=inp.files[0].name;
+  z.querySelector('p').textContent='Click to replace';
+}
+document.querySelectorAll('.upload-zone').forEach(z=>{
+  z.addEventListener('dragover',e=>{e.preventDefault();z.style.borderColor='#aaa';});
+  z.addEventListener('dragleave',()=>z.style.borderColor='');
+  z.addEventListener('drop',e=>{e.preventDefault();z.style.borderColor='';});
+});
+
+// Modals
+function openM(id){document.getElementById('m-'+id).classList.add('open');document.body.style.overflow='hidden';}
+function closeM(id){document.getElementById('m-'+id).classList.remove('open');document.body.style.overflow='';}
+document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o){o.classList.remove('open');document.body.style.overflow='';}}));
+</script>
+</body>
+</html>
